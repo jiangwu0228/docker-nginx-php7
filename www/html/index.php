@@ -13,7 +13,7 @@
     $password = "password";
     $host = "mysql";
 
-    $connection = new PDO("mysql:host={$host};dbname={$database};charset=utf8", $user, $password);
+    $connection = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $user, $password);
     $query = $connection->query("SELECT TABLE_NAME FROM information_schema.TABLES WHERE TABLE_TYPE='BASE TABLE'");
     $tables = $query->fetchAll(PDO::FETCH_COLUMN);
 
@@ -27,5 +27,13 @@
         }
         echo "</ul>";
     }
+    // $mysqli = new mysqli("$host", "$user", "$password");
+
+    // // Check connection
+    // if ($mysqli->connect_errno) {
+    //     echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+    //     exit();
+    // }
+    // echo "Connected successfully! wow!!!";
     ?>
 </body>
